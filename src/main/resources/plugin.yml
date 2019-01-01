@@ -2,3 +2,8 @@ name: CustomXp
 version: 1.0
 author: ChenChai
 main: ai.chench.customxp.CustomXp
+
+commands:
+  customxp:
+    description: view, set or add custom xp of yourself. Can only add or set integers.
+    usage: /customxp [view | add | set] <number of sp>

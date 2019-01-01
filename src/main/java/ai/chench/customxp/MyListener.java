@@ -23,10 +23,10 @@ public class MyListener implements Listener {
 
         // if the player is joining for the first time, assign 0 sp.
         if(plugin.getConfig().get("player." + uniqueId) == null){
-            SoulPoints.setPoints(player, plugin, 0);
-            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to " + SoulPoints.getPoints(player, plugin) + " Soul Points (SP)");
+            SoulPoints.setPoints(player, 0);
+            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to " + SoulPoints.getPoints(player) + " Soul Points (SP)");
         } else {
-            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + SoulPoints.getPoints(player, plugin) + " SP!");
+            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + SoulPoints.getPoints(player) + " SP!");
         }
     }
 }

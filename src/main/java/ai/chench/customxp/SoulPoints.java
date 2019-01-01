@@ -6,8 +6,10 @@ import org.bukkit.plugin.Plugin;
 public class SoulPoints {
 
     // returns the amount of soul points a player has
-    public static int getPoints(Player player, Plugin plugin) {
+    public static int getPoints(Player player) {
         int num;
+
+        Plugin plugin = CustomXp.getInstance();
         try {
             num = (Integer) plugin.getConfig().get("player." + player.getUniqueId().toString() + ".sp");
             return num;
@@ -22,13 +24,14 @@ public class SoulPoints {
     }
 
     // sets the number of soul points a player has to an integer value
-    public static void setPoints(Player player, Plugin plugin, int points) {
+    public static void setPoints(Player player, int points) {
+        Plugin plugin = CustomXp.getInstance();
         plugin.getConfig().set("player." + player.getUniqueId().toString() + ".sp", points);
         plugin.saveConfig();
     }
 
     // adds a number of points to the player's soul point total
-    public static void addPoints(Player player, Plugin plugin, int points) {
-        setPoints(player, plugin, points + getPoints(player, plugin));
+    public static void addPoints(Player player, int points) {
+        setPoints(player, points + getPoints(player));
     }
 }
