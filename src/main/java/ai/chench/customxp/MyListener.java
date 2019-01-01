@@ -19,17 +19,14 @@ public class MyListener implements Listener {
         Player player = event.getPlayer();
         plugin.reloadConfig(); // make sure the config is up to date
 
-        String uniqueIdString = player.getUniqueId().toString();
+        String uniqueId = player.getUniqueId().toString();
 
         // if the player is joining for the first time, assign 0 sp.
-        if(plugin.getConfig().get("player." + uniqueIdString) == null){
-            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to" + " Soul Points (SP)");
-
-            plugin.getConfig().set("player." + uniqueIdString + ".sp", "0");
-            plugin.saveConfig();
+        if(plugin.getConfig().get("player." + uniqueId) == null){
+            SoulPoints.setPoints(player, plugin, 0);
+            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to " + SoulPoints.getPoints(player, plugin) + " Soul Points (SP)");
         } else {
-            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + plugin.getConfig().get("player." + uniqueIdString + ".sp"));
-
+            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + SoulPoints.getPoints(player, plugin) + " SP!");
         }
     }
 }
