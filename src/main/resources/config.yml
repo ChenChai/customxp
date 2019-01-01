@@ -1,4 +1,4 @@
-level:
+level: # how much xp is required to progress to each level
   1: 0
   2: 83
   3: 174

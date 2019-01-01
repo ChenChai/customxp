@@ -21,13 +21,15 @@ public class MyListener implements Listener {
 
         String uniqueIdString = player.getUniqueId().toString();
 
-        // if the player is joining for the first time, assign 0 xp.
+        // if the player is joining for the first time, assign 0 sp.
         if(plugin.getConfig().get("player." + uniqueIdString) == null){
-            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to zero xp!");
-            plugin.getConfig().set("player." + uniqueIdString + ".xp", "0");
+            Bukkit.broadcastMessage("New player " + player.getDisplayName() + " joined, set to" + " Soul Points (SP)");
+
+            plugin.getConfig().set("player." + uniqueIdString + ".sp", "0");
             plugin.saveConfig();
         } else {
-            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + plugin.getConfig().get("player." + uniqueIdString + ".xp"));
+            Bukkit.broadcastMessage("Player " + player.getDisplayName() + " joined, with " + plugin.getConfig().get("player." + uniqueIdString + ".sp"));
+
         }
     }
 }
