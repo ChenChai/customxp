@@ -8,3 +8,7 @@ commands:
     description: view, set or add custom xp of yourself. Can only add or set integers.
     usage: /soulpoints [view | add | set] <number of sp>
     aliases: soul
+  setsoulpoints:
+    description: set or add soul points. Must be an integer.
+    usage: /setsoulpoints [ add | set ] <number of sp> <player>
+    permission: 4
