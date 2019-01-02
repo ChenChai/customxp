@@ -2,6 +2,7 @@ package ai.chench.customxp.commands;
 
 import ai.chench.customxp.CustomXp;
 import ai.chench.customxp.SoulPoints;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,8 @@ public class CommandSoulPoints implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        player.sendMessage("You have " + SoulPoints.getPoints(player) + " Soul Points!");
+        player.sendMessage(ChatColor.BLUE + "You have " + SoulPoints.getPoints(player) + " Soul Points!");
+        player.sendMessage(ChatColor.DARK_BLUE + "Soul Points are gained when monsters are killed, and allow you to cast skills with /skill!");
         return true;
     }
 }

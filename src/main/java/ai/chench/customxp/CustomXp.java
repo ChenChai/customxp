@@ -28,11 +28,12 @@ public class CustomXp extends JavaPlugin {
         // so they will no longer give Soul Points.
         for (World world : Bukkit.getWorlds()) {
             for (LivingEntity livingEntity : world.getLivingEntities()) {
-                /*if (livingEntity instanceof Monster) {
-                    getLogger().info("Removing: " + livingEntity.getName());
-                    livingEntity.remove();
-                }*/
-                livingEntity.setMetadata("sp", new FixedMetadataValue(this, 5));
+                 if (livingEntity instanceof Monster) {
+                    // getLogger().info("Removing: " + livingEntity.getName());
+                    // livingEntity.remove();
+                    livingEntity.setMetadata("sp", new FixedMetadataValue(this, getConfig().getInt("pointsdropped.monster")));
+                }
+
             }
         }
     }

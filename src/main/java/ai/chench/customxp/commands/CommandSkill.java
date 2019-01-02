@@ -19,8 +19,6 @@ public class CommandSkill implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        // TODO allow point consumption and spell strength to be tweaked in config
-
         Plugin plugin = CustomXp.getInstance();
 
         if(args[0].equals("haste")) {
@@ -35,6 +33,7 @@ public class CommandSkill implements CommandExecutor {
                 player.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Consumed " + cost + " Soul Points to cast Haste!");
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, amplifier));
             }
+            return true;
         }
         return false;
     }

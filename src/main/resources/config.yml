@@ -10,8 +10,12 @@ level: # how much xp is required to progress to each level
   9: 969
   10: 1154
 
+pointsdropped:
+  monster: 5
+  default: 3
+
 skills:
   haste:
-    cost:
+    cost: 20
     duration: 200 # in ticks
     amplifier: 3

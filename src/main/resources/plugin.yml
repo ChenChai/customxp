@@ -14,4 +14,4 @@ commands:
     permission: 4
   skill:
     description: Consumes soul points to use a skill!
-    usage: /skill [ haste (20 sp) ]
+    usage: /skill [haste]

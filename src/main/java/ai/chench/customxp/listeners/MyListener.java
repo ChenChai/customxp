@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -47,20 +48,23 @@ public class MyListener implements Listener {
         if (livingEntity.getKiller() != null) {
             Player player = livingEntity.getKiller();
 
+            int points = 0;
             if(livingEntity.hasMetadata("sp")) {
-                int points = livingEntity.getMetadata("sp").get(0).asInt();
-                SoulPoints.addPoints(player, points);
-                // need to put color before italic for both styles to apply, for some reason
-                player.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.ITALIC + "+" + points + " Soul Points [" + livingEntity.getName() + "]");
+                points = livingEntity.getMetadata("sp").get(0).asInt();
+            } else {
+                points = plugin.getConfig().getInt("pointsdropped.default");
             }
+            SoulPoints.addPoints(player, points);
+            // need to put color before italic for both styles to apply, for some reason
+            player.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.ITALIC + "+" + points + " Soul Points [" + livingEntity.getName() + "]");
         }
     }
 
     @EventHandler
     public void onEntitySpawn(EntitySpawnEvent event) {
         Entity entity = event.getEntity();
-        if (entity instanceof LivingEntity){
-            entity.setMetadata("sp", new FixedMetadataValue(plugin, 5));
+        if (entity instanceof Monster){
+            entity.setMetadata("sp", new FixedMetadataValue(plugin, plugin.getConfig().getInt("pointsdropped.monster")));
         }
     }
 
