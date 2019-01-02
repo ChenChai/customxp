@@ -4,6 +4,7 @@ author: ChenChai
 main: ai.chench.customxp.CustomXp
 
 commands:
-  customxp:
+  soulpoints:
     description: view, set or add custom xp of yourself. Can only add or set integers.
-    usage: /customxp [view | add | set] <number of sp>
+    usage: /soulpoints [view | add | set] <number of sp>
+    aliases: soul
