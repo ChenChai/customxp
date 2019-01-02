@@ -10,3 +10,8 @@ level: # how much xp is required to progress to each level
   9: 969
   10: 1154
 
+skills:
+  haste:
+    cost:
+    duration: 200 # in ticks
+    amplifier: 3

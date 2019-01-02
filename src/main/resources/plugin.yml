@@ -12,3 +12,6 @@ commands:
     description: set or add soul points. Must be an integer.
     usage: /setsoulpoints [ add | set ] <number of sp> <player>
     permission: 4
+  skill:
+    description: Consumes soul points to use a skill!
+    usage: /skill [ haste (20 sp) ]
