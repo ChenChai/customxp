@@ -16,8 +16,10 @@ public class CommandSoulPoints implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        player.sendMessage(ChatColor.BLUE + "You have " + SoulPoints.getPoints(player) + " Soul Points!");
-        player.sendMessage(ChatColor.DARK_BLUE + "Soul Points are gained when monsters are killed, and allow you to cast skills with /skill!");
+        int points = SoulPoints.getPoints(player);
+        player.sendMessage(ChatColor.BLUE + "You have " + points + " Soul Points!");
+        player.sendMessage(ChatColor.BLUE + "You are level " + SoulPoints.getLevel(points));
+        player.sendMessage(ChatColor.GRAY + "Soul Points are gained when monsters are killed, and allow you to cast skills with /skill!");
         return true;
     }
 }

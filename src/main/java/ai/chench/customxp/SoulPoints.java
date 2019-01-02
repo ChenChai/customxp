@@ -1,7 +1,11 @@
 package ai.chench.customxp;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class SoulPoints {
 
@@ -21,6 +25,18 @@ public class SoulPoints {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    // returns what level a player is based on their soul points.
+    public static int getLevel(int points) {
+        int level = 1;
+        Plugin plugin = CustomXp.getInstance();
+        ArrayList<Integer> levelList = (ArrayList<Integer>) plugin.getConfig().getIntegerList("level");
+        
+        // TODO: convert to binary search?
+        while(level < levelList.size() && levelList.get(level) <= points) level++;
+
+        return level;
     }
 
     // sets the number of soul points a player has to an integer value

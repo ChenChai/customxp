@@ -15,7 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.Plugin;
 
-import java.awt.*;
+import java.util.*;
 
 public class MyListener implements Listener {
 
@@ -62,8 +62,24 @@ public class MyListener implements Listener {
 
     @EventHandler
     public void onEntitySpawn(EntitySpawnEvent event) {
+        Random random = new Random();
+
         Entity entity = event.getEntity();
+
+
+
+
         if (entity instanceof Monster){
+
+
+            /*
+            ArrayList<Player> nearbyPlayers = new ArrayList<Player>();
+            for (Player player : entity.getWorld().getPlayers()) {
+            }
+            */
+            entity.setCustomName("" + entity.getName());
+            entity.setCustomNameVisible(true);
+
             entity.setMetadata("sp", new FixedMetadataValue(plugin, plugin.getConfig().getInt("pointsdropped.monster")));
         }
     }

@@ -1,5 +1,5 @@
 name: CustomXp
-version: 1.0
+version: 1.1
 author: ChenChai
 main: ai.chench.customxp.CustomXp
 
@@ -14,4 +14,4 @@ commands:
     permission: 4
   skill:
     description: Consumes soul points to use a skill!
-    usage: /skill [haste]
+    usage: /skill [ haste | burst ]
